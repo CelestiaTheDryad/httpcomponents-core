@@ -209,8 +209,8 @@ public class TestHPackCoding {
     @Test
     public void testBasicStringCoding() throws Exception {
 
-        final HPackEncoder encoder = new HPackEncoder(StandardCharsets.US_ASCII);
-        final HPackDecoder decoder = new HPackDecoder(StandardCharsets.US_ASCII);
+        final HPackEncoder encoder = new HPackEncoder(Integer.MAX_VALUE, StandardCharsets.US_ASCII);
+        final HPackDecoder decoder = new HPackDecoder(Integer.MAX_VALUE, StandardCharsets.US_ASCII);
 
         final ByteArrayBuffer buffer = new ByteArrayBuffer(16);
         encoder.encodeString(buffer, "this and that", false);
@@ -256,8 +256,8 @@ public class TestHPackCoding {
             final ByteArrayBuffer buffer = new ByteArrayBuffer(16);
             final StringBuilder strBuf = new StringBuilder();
 
-            final HPackEncoder encoder = new HPackEncoder(charset);
-            final HPackDecoder decoder = new HPackDecoder(charset);
+            final HPackEncoder encoder = new HPackEncoder(Integer.MAX_VALUE, charset);
+            final HPackDecoder decoder = new HPackDecoder(Integer.MAX_VALUE, charset);
 
             for (int n = 0; n < 10; n++) {
 
@@ -284,8 +284,8 @@ public class TestHPackCoding {
             final ByteArrayBuffer buffer = new ByteArrayBuffer(16);
             final StringBuilder strBuf = new StringBuilder();
 
-            final HPackEncoder encoder = new HPackEncoder(charset);
-            final HPackDecoder decoder = new HPackDecoder(charset);
+            final HPackEncoder encoder = new HPackEncoder(Integer.MAX_VALUE, charset);
+            final HPackDecoder decoder = new HPackDecoder(Integer.MAX_VALUE, charset);
 
             for (int n = 0; n < 10; n++) {
 
@@ -1043,8 +1043,8 @@ public class TestHPackCoding {
     @Test
     public void testHeaderSizeLimit() throws Exception {
 
-        final HPackEncoder encoder = new HPackEncoder(StandardCharsets.US_ASCII);
-        final HPackDecoder decoder = new HPackDecoder(StandardCharsets.US_ASCII);
+        final HPackEncoder encoder = new HPackEncoder(Integer.MAX_VALUE, StandardCharsets.US_ASCII);
+        final HPackDecoder decoder = new HPackDecoder(Integer.MAX_VALUE, StandardCharsets.US_ASCII);
 
         final ByteArrayBuffer buf = new ByteArrayBuffer(128);
 
@@ -1068,8 +1068,8 @@ public class TestHPackCoding {
     @Test
     public void testHeaderEmptyASCII() throws Exception {
 
-        final HPackEncoder encoder = new HPackEncoder(StandardCharsets.US_ASCII);
-        final HPackDecoder decoder = new HPackDecoder(StandardCharsets.US_ASCII);
+        final HPackEncoder encoder = new HPackEncoder(Integer.MAX_VALUE, StandardCharsets.US_ASCII);
+        final HPackDecoder decoder = new HPackDecoder(Integer.MAX_VALUE, StandardCharsets.US_ASCII);
 
         final ByteArrayBuffer buf = new ByteArrayBuffer(128);
 
@@ -1082,8 +1082,8 @@ public class TestHPackCoding {
     @Test
     public void testHeaderEmptyUTF8() throws Exception {
 
-        final HPackEncoder encoder = new HPackEncoder(StandardCharsets.UTF_8);
-        final HPackDecoder decoder = new HPackDecoder(StandardCharsets.UTF_8);
+        final HPackEncoder encoder = new HPackEncoder(Integer.MAX_VALUE, StandardCharsets.UTF_8);
+        final HPackDecoder decoder = new HPackDecoder(Integer.MAX_VALUE, StandardCharsets.UTF_8);
 
         final ByteArrayBuffer buf = new ByteArrayBuffer(128);
 
