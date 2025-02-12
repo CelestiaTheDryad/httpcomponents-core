@@ -332,7 +332,7 @@ class ServerHttp1StreamHandler implements ResourceHolder {
     }
 
     void failed(final Exception cause) {
-        if (!done.get()) {
+        if (!done.get() && exchangeHandler != null) {
             exchangeHandler.failed(cause);
         }
     }
@@ -342,7 +342,9 @@ class ServerHttp1StreamHandler implements ResourceHolder {
         if (done.compareAndSet(false, true)) {
             requestState = MessageState.COMPLETE;
             responseState = MessageState.COMPLETE;
-            exchangeHandler.releaseResources();
+            if (exchangeHandler != null) {
+                exchangeHandler.releaseResources();
+            }
         }
     }
 
